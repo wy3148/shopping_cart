@@ -3,8 +3,8 @@
 # usage
 
 ## run the demo
-make sure you have configured $GOPATH
-go to the directory $GOPATH/src, and run following commands to run the demo
+make sure you have configured $GOPATH, go to the directory $GOPATH/src, 
+and run following commands to run the demo
 
 ```
 
