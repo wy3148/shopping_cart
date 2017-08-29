@@ -25,6 +25,7 @@ func NewShoppingCart() *ShoppingCart {
 	return c
 }
 
+// add the item based on the unique product code
 func (c *ShoppingCart) Add(productCode string, num int, promoCode ...string) error {
 
 	if num <= 0 {
@@ -50,7 +51,9 @@ func (c *ShoppingCart) Add(productCode string, num int, promoCode ...string) err
 
 func (c *ShoppingCart) PrintOrder() {
 
-	log.Println("Items Added 		Expected Cart Total		Expected Cart Items")
+	log.Println("Items Added:")
+	log.Println("-------------------------")
+
 	for productCode, num := range c.ordered {
 		if rule, ok := priceManager[productCode]; ok {
 
@@ -65,9 +68,16 @@ func (c *ShoppingCart) PrintOrder() {
 		}
 	}
 
-	log.Printf("					%0.2f", c.total)
+	log.Println("-------------------------")
+	log.Printf("Expected Cart Total:%0.2f\n", c.total)
+	log.Println("-------------------------")
+
+	log.Println("Expected Cart Items:")
+	log.Println("-------------------------")
 
 	for _, p := range c.outputOrderedItems {
-		log.Println("								", p.Num, " x "+p.Name)
+		log.Println(p.Num, " x "+p.Name)
 	}
+
+	log.Println("-------------------------")
 }
